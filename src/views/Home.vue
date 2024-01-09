@@ -9,7 +9,7 @@
     <div class="mb-5">
         <px-dolar />
     </div>
-    <div class="ml-5">
+    <div>
         <PxAssetsTable v-if="!isloading" :assets="assets" />
     </div>
   </div>

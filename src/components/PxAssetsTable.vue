@@ -126,11 +126,11 @@ export default {
 
 <style scoped>
 .up::before {
-  content: "👆";
+  content: "🔼";
 }
 
 .down::before {
-  content: "👇";
+  content: "🔻";
 }
 
 td {
