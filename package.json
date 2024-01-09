@@ -18,7 +18,7 @@
     "vue-chartjs": "^4.0.4",
     "vue-chartkick": "^1.1.0",
     "vue-router": "^4.0.13",
-    "vue-spinner": "^1.0.4"
+    "vue-spinner": "1.0.4"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",

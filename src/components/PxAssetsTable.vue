@@ -4,13 +4,14 @@
       <tr class="bg-purple-300 border-b-2 border-purple-400">
         <th></th>
         <th :class="{ up: this.sortOrder === 1, down: this.sortOrder === -1 }">
-          <span class="underline cursor-pointer" @click="changeSortOrder">Ranking</span>
+          <span class="underline cursor-pointer" @click="changeSortOrder"
+            >Ranking</span
+          >
         </th>
         <th>Nombre</th>
         <th>Precio</th>
-       
+
         <th>Variación 24hs</th>
-         <th>Cap. de Mercado</th>
         <td class="hidden sm:block">
           <input
             class="bg-purple-100 focus:outline-none border-b text-black border-purple-400 py-2 px-4 block w-full appearance-none leading-normal"
@@ -22,10 +23,9 @@
         </td>
       </tr>
     </thead>
-     <tbody>
+    <tbody>
       <tr
         v-for="a in filteredAssets"
-
         :key="a.id"
         class="border-b border-gray-200 hover:bg-gray-100 hover:bg-orange-100"
       >
@@ -48,9 +48,9 @@
           >
           <small class="ml-1 text-gray-500">{{ a.symbol }} </small>
         </td>
-        
+
         <td>${{ new Intl.NumberFormat("es-CO").format(a.priceUsd) }}</td>
-        
+
         <td
           :class="
             a.changePercent24Hr.includes('-')
@@ -60,9 +60,10 @@
         >
           {{ Math.round(a.changePercent24Hr * 100) / 100 }}
         </td>
-        <td>{{ new Intl.NumberFormat("es-CO").format(a.marketCapUsd) }}</td>
         <td class="hidden sm:block">
-          <px-button @click="goToCoin(a.id)"> <span> Detalle </span> </px-button>
+          <px-button @click="goToCoin(a.id)">
+            <span> Detalle </span>
+          </px-button>
         </td>
       </tr>
     </tbody>
@@ -70,66 +71,66 @@
 </template>
 
 <script>
-import PxButton from '@/components/PxButton'
+import PxButton from "@/components/PxButton";
 
 export default {
-  name: 'PxAssetsTable',
+  name: "PxAssetsTable",
 
   components: { PxButton },
 
   data() {
     return {
-      filter: '',
-      sortOrder: 1
-    }
+      filter: "",
+      sortOrder: 1,
+    };
   },
 
   props: {
     assets: {
       type: Array,
-      default: () => []
-    }
+      default: () => [],
+    },
   },
 
   computed: {
     filteredAssets() {
-      const altOrder = this.sortOrder === 1 ? -1 : 1
+      const altOrder = this.sortOrder === 1 ? -1 : 1;
 
       return this.assets
         .filter(
-          a =>
+          (a) =>
             a.symbol.toLowerCase().includes(this.filter.toLowerCase()) ||
             a.name.toLowerCase().includes(this.filter.toLowerCase())
         )
         .sort((a, b) => {
           if (parseInt(a.rank) > parseInt(b.rank)) {
-            return this.sortOrder
+            return this.sortOrder;
           }
 
-          return altOrder
-        })
-    }
+          return altOrder;
+        });
+    },
   },
 
   methods: {
     goToCoin(id) {
-      this.$router.push({ name: 'coin-detail', params: { id } })
+      this.$router.push({ name: "coin-detail", params: { id } });
     },
 
     changeSortOrder() {
-      this.sortOrder = this.sortOrder === 1 ? -1 : 1
-    }
-  }
-}
+      this.sortOrder = this.sortOrder === 1 ? -1 : 1;
+    },
+  },
+};
 </script>
 
 <style scoped>
 .up::before {
-  content: '👆';
+  content: "👆";
 }
 
 .down::before {
-  content: '👇';
+  content: "👇";
 }
 
 td {
