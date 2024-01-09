@@ -1,6 +1,6 @@
 <template>
   <div class="flex justify-center sm:flex-col">
-    <div class="mx-4">
+    <div class="mx-4 mx-20">
       <table class="min-w-full bg-white shadow-md rounded">
         <thead class="bg-purple-400 text-white">
           <tr>
