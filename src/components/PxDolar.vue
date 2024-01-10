@@ -4,21 +4,21 @@
       <table class="min-w-full bg-white shadow-md rounded">
         <thead class="bg-purple-400 text-white">
           <tr>
-            <th class="px-6 py-4 text-left font-bold">Proveedor</th>
+            <th class="px-6 py-4 text-left font-bold">Nombre</th>
             <th class="px-6 py-4 text-left font-bold">Última actualización</th>
             <th class="px-6 py-4 text-left font-bold">Precio Actual</th>
           </tr>
         </thead>
         <tbody>
-          <tr v-if="dollarData">
-            <td class="border px-6 py-4">{{ "Paralero" }}</td>
+          <tr class="border-b border-gray-200 hover:bg-gray-100 hover:bg-orange-100" v-if="dollarData">
+            <td class="border px-6 py-4">{{ "Dolar Paralero" }}</td>
             <td class="border px-6 py-4">{{ dollarData.last_update }}</td>
-            <td class="border px-6 py-4">{{ dollarData.price }}</td>
+            <td class="border px-6 py-4">{{ dollarData.price }} bs</td>
           </tr>
-          <tr v-if="dollarDataBcv">
-            <td class="border px-6 py-4">{{ "BCV" }}</td>
+          <tr class="border-b border-gray-200 hover:bg-gray-100 hover:bg-orange-100" v-if="dollarDataBcv">
+            <td class="border px-6 py-4">{{ "Dolar BCV" }}</td>
             <td class="border px-6 py-4">{{ dollarDataBcv.last_update }}</td>
-            <td class="border px-6 py-4">{{ dollarDataBcv.price }}</td>
+            <td class="border px-6 py-4">{{ dollarDataBcv.price }} bs</td>
           </tr>
         </tbody>
       </table>
