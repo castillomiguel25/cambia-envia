@@ -1,42 +1,38 @@
 <template>
   <main>
     <Px-header :links="links" />
-   
-    <router-view class="container px-5 sm:px-20 py-20 flex justify-center" />
+    <div class="margin-body">
+      <router-view class="container sm:px-20 py-20 flex justify-center" />
+    </div>
   </main>
 </template>
 
 <script>
-
 import PxHeader from "@/components/PxHeader";
 
-
 export default {
-
   data() {
     return {
       links: [
         {
-          title: 'BTC',
-          to: { name: 'coin-detail', params: { id: 'bitcoin' } }
+          title: "BTC",
+          to: { name: "coin-detail", params: { id: "bitcoin" } },
         },
         {
-          title: 'ETH',
-          to: { name: 'coin-detail', params: { id: 'ethereum' } }
+          title: "ETH",
+          to: { name: "coin-detail", params: { id: "ethereum" } },
         },
         {
-          title: 'XRP',
-          to: { name: 'coin-detail', params: { id: 'xrp' } }
-        }
-      ]
-    }
+          title: "XRP",
+          to: { name: "coin-detail", params: { id: "xrp" } },
+        },
+      ],
+    };
   },
 
   name: "App",
   components: {
-    PxHeader, 
-    
-   
+    PxHeader,
   },
 };
 </script>
@@ -49,7 +45,14 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 0px;
-  
+  overflow-x: hidden;
 }
 
+.margin-body {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+body {
+  overflow-x: hidden;
+}
 </style>

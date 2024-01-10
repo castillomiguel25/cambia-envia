@@ -6,10 +6,10 @@
       :color="'#68d391'"
       :size="'300px'"
     ></ring-loader>
-    <div class="mb-5 mx-16">
+    <div class="mb-5">
         <px-dolar />
     </div>
-    <div>
+    <div class="overflow-x-none">
         <PxAssetsTable v-if="!isloading" :assets="assets" />
     </div>
   </div>

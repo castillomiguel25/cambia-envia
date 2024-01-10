@@ -11,12 +11,12 @@
         </thead>
         <tbody>
           <tr v-if="dollarData">
-            <td class="border px-6 py-4">{{ 'Paralero' }}</td>
+            <td class="border px-6 py-4">{{ "Paralero" }}</td>
             <td class="border px-6 py-4">{{ dollarData.last_update }}</td>
             <td class="border px-6 py-4">{{ dollarData.price }}</td>
           </tr>
           <tr v-if="dollarDataBcv">
-            <td class="border px-6 py-4">{{ 'BCV' }}</td>
+            <td class="border px-6 py-4">{{ "BCV" }}</td>
             <td class="border px-6 py-4">{{ dollarDataBcv.last_update }}</td>
             <td class="border px-6 py-4">{{ dollarDataBcv.price }}</td>
           </tr>
@@ -25,7 +25,6 @@
     </div>
   </div>
 </template>
-
 
 <script>
 export default {

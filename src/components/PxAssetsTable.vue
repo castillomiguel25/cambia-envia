@@ -1,73 +1,80 @@
 <template>
-  <table>
-    <thead>
-      <tr class="bg-purple-300 border-b-2 border-purple-400">
-        <th></th>
-        <th :class="{ up: this.sortOrder === 1, down: this.sortOrder === -1 }">
-          <span class="underline cursor-pointer" @click="changeSortOrder"
-            >Ranking</span
+  <div class="flex justify-center sm:flex-col w-full">
+    <div>
+      <table class="min-w-full bg-white shadow-md rounded">
+        <thead class="bg-purple-400 text-white">
+          <tr class="bg-purple-300 border-b-2 border-purple-400">
+            <th></th>
+            <th
+              class="px-6 py-4 text-left font-bold"
+              :class="{ up: this.sortOrder === 1, down: this.sortOrder === -1 }"
+            >
+              <span class="underline cursor-pointer" @click="changeSortOrder"
+                >Ranking</span
+              >
+            </th>
+            <th>Nombre</th>
+            <th>Precio</th>
+
+            <th>Variación 24hs</th>
+            <td class="hidden sm:block">
+              <input
+                class="bg-purple-100 focus:outline-none border-b text-black border-purple-400 py-2 px-4 block w-full appearance-none leading-normal"
+                id="filter"
+                placeholder="Buscar..."
+                type="text"
+                v-model="filter"
+              />
+            </td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            v-for="a in filteredAssets"
+            :key="a.id"
+            class="border-b border-gray-200 hover:bg-gray-100 hover:bg-orange-100"
           >
-        </th>
-        <th>Nombre</th>
-        <th>Precio</th>
+            <td>
+              <img
+                class="mx-6 w-12 h-12"
+                :src="`https://static.coincap.io/assets/icons/${a.symbol.toLowerCase()}@2x.png`"
+                :alt="a.name"
+              />
+            </td>
+            <td>
+              <b># {{ a.rank }} </b>
+            </td>
 
-        <th>Variación 24hs</th>
-        <td class="hidden sm:block">
-          <input
-            class="bg-purple-100 focus:outline-none border-b text-black border-purple-400 py-2 px-4 block w-full appearance-none leading-normal"
-            id="filter"
-            placeholder="Buscar..."
-            type="text"
-            v-model="filter"
-          />
-        </td>
-      </tr>
-    </thead>
-    <tbody>
-      <tr
-        v-for="a in filteredAssets"
-        :key="a.id"
-        class="border-b border-gray-200 hover:bg-gray-100 hover:bg-orange-100"
-      >
-        <td>
-          <img
-            class="w-6 h-6"
-            :src="`https://static.coincap.io/assets/icons/${a.symbol.toLowerCase()}@2x.png`"
-            :alt="a.name"
-          />
-        </td>
-        <td>
-          <b># {{ a.rank }} </b>
-        </td>
+            <td>
+              <router-link
+                class="hover:underline text-green-600"
+                :to="{ name: 'coin-detail', params: { id: a.id } }"
+                >{{ a.name }}</router-link
+              >
+              <small class="ml-1 text-gray-500">{{ a.symbol }} </small>
+            </td>
 
-        <td>
-          <router-link
-            class="hover:underline text-green-600"
-            :to="{ name: 'coin-detail', params: { id: a.id } }"
-            >{{ a.name }}</router-link
-          >
-          <small class="ml-1 text-gray-500">{{ a.symbol }} </small>
-        </td>
+            <td>${{ new Intl.NumberFormat("es-CO").format(a.priceUsd) }}</td>
 
-        <td>${{ new Intl.NumberFormat("es-CO").format(a.priceUsd) }}</td>
-
-        <td
-          :class="
-            a.changePercent24Hr.includes('-')
-              ? 'text-red-600'
-              : 'text-green-600'
-          "
-        >
-          {{ Math.round(a.changePercent24Hr * 100) / 100 }}
-        </td>
-        <td class="hidden sm:block">
-          <px-button @click="goToCoin(a.id)">
-            <span> Detalle </span>
-          </px-button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+            <td
+              :class="
+                a.changePercent24Hr.includes('-')
+                  ? 'text-red-600'
+                  : 'text-green-600'
+              "
+            >
+              {{ Math.round(a.changePercent24Hr * 100) / 100 }}
+            </td>
+            <td class="hidden sm:block">
+              <px-button @click="goToCoin(a.id)">
+                <span> Detalle </span>
+              </px-button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -125,6 +132,13 @@ export default {
 </script>
 
 <style scoped>
+table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+/* Esto ocultará la barra de desplazamiento horizontal */
+
 .up::before {
   content: "🔼";
 }
