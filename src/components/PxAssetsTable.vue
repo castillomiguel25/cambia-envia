@@ -6,7 +6,7 @@
           <tr class="bg-purple-300 border-b-2 border-purple-400">
             <th></th>
             <th
-              class="px-6 py-4 text-left font-bold"
+              class="px-6 py-4 text-left font-bold  delete-mobile"
               :class="{ up: this.sortOrder === 1, down: this.sortOrder === -1 }"
             >
               <span class="underline cursor-pointer" @click="changeSortOrder"
@@ -41,13 +41,13 @@
                 :alt="a.name"
               />
             </td>
-            <td>
+            <td class="delete-mobile">
               <b># {{ a.rank }} </b>
             </td>
 
             <td>
               <router-link
-                class="hover:underline text-green-600"
+                class="hover:underline text-green-600 "
                 :to="{ name: 'coin-detail', params: { id: a.id } }"
                 >{{ a.name }}</router-link
               >
@@ -167,6 +167,12 @@ th {
 
   th {
     padding: 12px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .delete-mobile {
+    display: none;
   }
 }
 </style>

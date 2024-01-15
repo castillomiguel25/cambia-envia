@@ -2,7 +2,7 @@
   <main>
     <Px-header :links="links" />
     <div class="margin-body">
-      <router-view class="container sm:px-20 py-20 flex justify-center" />
+      <router-view class="container py-20 flex justify-center" />
     </div>
   </main>
 </template>
@@ -48,11 +48,4 @@ export default {
   overflow-x: hidden;
 }
 
-.margin-body {
-  margin-left: 20px;
-  margin-right: 20px;
-}
-body {
-  overflow-x: hidden;
-}
 </style>

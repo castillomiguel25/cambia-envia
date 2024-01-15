@@ -218,7 +218,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 td {
   padding: 10px;
   text-align: center;
