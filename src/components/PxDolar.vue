@@ -16,7 +16,7 @@
           >
             <td class="border px-6 py-4">{{ "Dolar Paralero" }}</td>
             <td class="border px-6 py-4">{{ dollarData.last_update }}</td>
-            <td class="border px-6 py-4">{{ dollarData.price }} bs</td>
+            <td class="border px-6 py-4">{{ (dollarData.price).toFixed(2) }} bs</td>
           </tr>
           <tr
             class="border-b border-gray-200 hover:bg-gray-100 hover:bg-orange-100"
@@ -24,7 +24,7 @@
           >
             <td class="border px-6 py-4">{{ "Dolar BCV" }}</td>
             <td class="border px-6 py-4">{{ dollarDataBcv.last_update }}</td>
-            <td class="border px-6 py-4">{{ dollarDataBcv.price }} bs</td>
+            <td class="border px-6 py-4">{{ (dollarDataBcv.price).toFixed(2) }} bs</td>
           </tr>
         </tbody>
       </table>
@@ -42,7 +42,7 @@
             class="ml-2 mr-2 p-2 border border-gray-300 rounded"
             placeholder="cantidad en $"
           />
-          <p class="mt-3">{{ (userInputOne * dollarData.price).toFixed(3) }} BS</p>
+          <p class="mt-3">{{ (userInputOne * dollarData.price).toFixed(2) }} BS</p>
         </div>
       </div>
       <div class="mt-5">
@@ -59,7 +59,7 @@
             class="ml-2 mr-2 p-2 border border-gray-300 rounded"
             placeholder="cantidad en $"
           />
-          <p class="mt-3">{{ (userInput * dollarDataBcv.price).toFixed(3) }} BS</p>
+          <p class="mt-3">{{ (userInput * dollarDataBcv.price).toFixed(2) }} BS</p>
         </div>
       </div>
     </div>
