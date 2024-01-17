@@ -28,13 +28,13 @@
           </tr>
         </tbody>
       </table>
-      <div class="mt-5">
-        <p>Calcular Precio Dolar Paralelo</p>
-      </div>
       <div
         v-if="dollarData"
-        class="flex items-center justify-center mt-10 font-bold px-10"
+        class="flex-col items-center justify-center mt-10 font-bold px-10"
       >
+      <div class="mb-3">
+        <p>Calcular Precio Dolar Paralelo</p>
+      </div>
         <div class="flex-col items-center">
           <input
             v-model="userInputOne"
@@ -45,13 +45,14 @@
           <p class="mt-3">{{ (userInputOne * dollarData.price).toFixed(2) }} BS</p>
         </div>
       </div>
-      <div class="mt-5">
-        <p>Calcular Precio Dolar BCV</p>
-      </div>
+      
       <div
         v-if="dollarDataBcv"
-        class="flex items-center justify-center mt-10 font-bold px-10"
+        class="flex-col items-center justify-center mt-10 font-bold px-10"
       >
+      <div class="mb-3">
+        <p>Calcular Precio Dolar BCV</p>
+      </div>
         <div class="flex-col items-center">
           <input
             v-model="userInput"
