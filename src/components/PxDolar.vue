@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-center sm:flex-col">
+  <div class="flex justify-center sm:flex-col px-20">
     <div>
       <table class="min-w-full bg-white shadow-md rounded">
         <thead class="bg-purple-400 text-white">
@@ -28,34 +28,38 @@
           </tr>
         </tbody>
       </table>
+      <div class="mt-5">
+        <p>Calcular Precio Dolar Paralelo</p>
+      </div>
       <div
         v-if="dollarData"
         class="flex items-center justify-center mt-10 font-bold px-10"
       >
-        <p>Calcular Precio Dolar Paralelo</p>
-        <div class="flex items-center">
+        <div class="flex-col items-center">
           <input
             v-model="userInputOne"
             type="number"
             class="ml-2 mr-2 p-2 border border-gray-300 rounded"
             placeholder="cantidad en $"
           />
-          <p>{{ userInputOne * dollarData.price }}</p>
+          <p class="mt-3">{{ (userInputOne * dollarData.price).toFixed(3) }} BS</p>
         </div>
+      </div>
+      <div class="mt-5">
+        <p>Calcular Precio Dolar BCV</p>
       </div>
       <div
         v-if="dollarDataBcv"
         class="flex items-center justify-center mt-10 font-bold px-10"
       >
-        <p>Calcular Precio Dolar BCV</p>
-        <div class="flex items-center">
+        <div class="flex-col items-center">
           <input
             v-model="userInput"
             type="number"
             class="ml-2 mr-2 p-2 border border-gray-300 rounded"
             placeholder="cantidad en $"
           />
-          <p>{{ userInput * dollarDataBcv.price }}</p>
+          <p class="mt-3">{{ (userInput * dollarDataBcv.price).toFixed(3) }} BS</p>
         </div>
       </div>
     </div>
