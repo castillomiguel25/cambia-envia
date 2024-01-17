@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-center sm:flex-col w-full">
+  <div class="flex justify-center items-center md:px-20 sm:flex-col w-full">
     <div>
       <table class="min-w-full bg-white shadow-md rounded">
         <thead class="bg-purple-400 text-white">
@@ -149,13 +149,8 @@ table {
 
 td {
   padding: 20px 0px;
-  font-size: 0.6rem;
+  font-size: 0.8rem;
   text-align: center;
-}
-
-th {
-  padding: 5px;
-  font-size: 0.6rem;
 }
 
 @media (min-width: 640px) {

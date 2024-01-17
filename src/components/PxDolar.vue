@@ -10,18 +10,54 @@
           </tr>
         </thead>
         <tbody>
-          <tr class="border-b border-gray-200 hover:bg-gray-100 hover:bg-orange-100" v-if="dollarData">
+          <tr
+            class="border-b border-gray-200 hover:bg-gray-100 hover:bg-orange-100"
+            v-if="dollarData"
+          >
             <td class="border px-6 py-4">{{ "Dolar Paralero" }}</td>
             <td class="border px-6 py-4">{{ dollarData.last_update }}</td>
             <td class="border px-6 py-4">{{ dollarData.price }} bs</td>
           </tr>
-          <tr class="border-b border-gray-200 hover:bg-gray-100 hover:bg-orange-100" v-if="dollarDataBcv">
+          <tr
+            class="border-b border-gray-200 hover:bg-gray-100 hover:bg-orange-100"
+            v-if="dollarDataBcv"
+          >
             <td class="border px-6 py-4">{{ "Dolar BCV" }}</td>
             <td class="border px-6 py-4">{{ dollarDataBcv.last_update }}</td>
             <td class="border px-6 py-4">{{ dollarDataBcv.price }} bs</td>
           </tr>
         </tbody>
       </table>
+      <div
+        v-if="dollarData"
+        class="flex items-center justify-center mt-10 font-bold px-10"
+      >
+        <p>Calcular Precio Dolar Paralelo</p>
+        <div class="flex items-center">
+          <input
+            v-model="userInputOne"
+            type="number"
+            class="ml-2 mr-2 p-2 border border-gray-300 rounded"
+            placeholder="cantidad en $"
+          />
+          <p>{{ userInputOne * dollarData.price }}</p>
+        </div>
+      </div>
+      <div
+        v-if="dollarDataBcv"
+        class="flex items-center justify-center mt-10 font-bold px-10"
+      >
+        <p>Calcular Precio Dolar BCV</p>
+        <div class="flex items-center">
+          <input
+            v-model="userInput"
+            type="number"
+            class="ml-2 mr-2 p-2 border border-gray-300 rounded"
+            placeholder="cantidad en $"
+          />
+          <p>{{ userInput * dollarDataBcv.price }}</p>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -32,6 +68,8 @@ export default {
     return {
       dollarData: null,
       dollarDataBcv: null,
+      userInputOne: 1,
+      userInput: 1,
     };
   },
   mounted() {
