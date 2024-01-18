@@ -64,7 +64,7 @@
         <div class="my-10 sm:mt-0 flex flex-col justify-center text-center">
           <button
             @click="toggleConverter"
-            class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+            class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded"
           >
             {{ fromUsd ? `USD a ${asset.symbol}` : `${asset.symbol} a USD` }}
           </button>
@@ -88,38 +88,12 @@
       </div>
 
       <line-chart
-        class="my-10"
+        class="my-10 mx-10"
         :colors="['orange']"
         :min="min"
         :max="max"
         :data="history.map((h) => [h.date, parseFloat(h.priceUsd).toFixed(2)])"
       />
-
-      <h3 class="text-xl my-10">Mejores Ofertas de Cambio</h3>
-      <table>
-        <tr
-          v-for="m in markets"
-          :key="`${m.exchangeId}-${m.priceUsd}`"
-          class="border-b"
-        >
-          <td>
-            <b> {{ m.exchangeId }} </b>
-          </td>
-          <td>
-            {{ new Intl.NumberFormat("es-CO").format(m.priceUsd) }}
-          </td>
-          <td>{{ m.baseSymbol }} / {{ m.quoteSymbol }}</td>
-          <td>
-            <px-button v-if="!m.url" @click="getWebSite(m)">
-              <slot> Obtener Link </slot>
-            </px-button>
-
-            <a v-else class="hover:underline text-green-600" target="_blanck">
-              {{ m.url }}
-            </a>
-          </td>
-        </tr>
-      </table>
     </template>
   </div>
 </template>
