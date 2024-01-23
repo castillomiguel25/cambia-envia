@@ -88,7 +88,7 @@
       </div>
 
       <line-chart
-        class="my-10 mx-2"
+        class="my-10"
         :colors="['orange']"
         :min="min"
         :max="max"
