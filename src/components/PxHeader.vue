@@ -8,7 +8,7 @@
           <router-link
             to="/"
             class="font-semibold text-teal-200 text-xl tracking-tight"
-            >Cambia&Envía</router-link
+            >Cambia tu Dolar</router-link
           >
         </div>
         <div
