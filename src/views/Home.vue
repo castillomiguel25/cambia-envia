@@ -7,24 +7,20 @@
       :size="'300px'"
     ></ring-loader>
     <div class="mb-5">
-        <px-dolar />
-    </div>
-    <div class="overflow-x-none">
-        <PxAssetsTable v-if="!isloading" :assets="assets" />
+        <px-dolar  v-if="!isloading" />
     </div>
   </div>
 </template>
 
 <script>
 import api from "@/api";
-import PxAssetsTable from "@/components/PxAssetsTable";
 import RingLoader from "vue-spinner/src/RingLoader.vue";
 import PxDolar from "@/components/PxDolar.vue";
 
 export default {
   name: "Home",
 
-  components: { PxAssetsTable, RingLoader, PxDolar },
+  components: { RingLoader, PxDolar },
 
   data() {
     return {
