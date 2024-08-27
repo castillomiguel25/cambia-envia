@@ -163,7 +163,7 @@ export default {
     async fetchDollarData() {
       try {
         const response = await fetch(
-          "https://pydolarvenezuela-api.vercel.app/api/v1/dollar/unit/enparalelovzla"
+          "https://pydolarve.org/api/v1/dollar/unit/enparalelovzla"
         );
         const data = await response.json();
         this.dollarData = data;
@@ -177,7 +177,7 @@ export default {
     async fetchDollarDataBcv() {
       try {
         const response = await fetch(
-          "https://pydolarvenezuela-api.vercel.app/api/v1/dollar/unit/bcv"
+          "https://pydolarve.org/api/v1/dollar/unit/bcv"
         );
         const data = await response.json();
         this.dollarDataBcv = data;
